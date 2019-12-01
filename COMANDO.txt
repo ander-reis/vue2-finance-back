@@ -1,0 +1,22 @@
+comando para iniciar docker:
+docker-compose up -d
+
+instalar prisma:
+npm i -g prisma@1.28
+
+iniciar prisma:
+prisma init --endpoint http://localhost:4466
+
+atualiza schema prisma server:
+prisma deploy
+
+gera prisma client:
+prisma generate
+
+comando schema grafhql
+delete:
+mutation {
+  deleteManyUsers(where: {}) {
+    count
+  }
+}
