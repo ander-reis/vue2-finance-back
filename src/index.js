@@ -10,16 +10,23 @@ const binding = new Binding.Prisma({
 const resolvers = {
     Query: {
         user(parent, args, context, info) {
+
             // return prisma.user({id: args.id})
-            // .then(user => {
-            // console.log('User:', user)
-            // return  user
-            // })
+            //     .then(user => {
+            //         console.log('User:', user)
+            //         return user
+            //     })
+
             return binding.query.user({where: {id: args.id}}, info)
                 .then(user => {
-                    console.log('User:', user)
+                    console.log('User:', user);
                     return user
                 })
+
+            // return {
+            //     id: 'testetste',
+            //     name: 'Docker'
+            // }
         }
     }
 };
