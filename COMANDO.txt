@@ -16,6 +16,13 @@ prisma generate
 comando para recriar container
 docker-compose up -d --build --no-deps api
 
+comando para listar network docker
+docker network ls
+docker-compose ps
+
+lista info do prisma no docker
+prisma info
+
 comando schema grafhql
 delete:
 mutation {
