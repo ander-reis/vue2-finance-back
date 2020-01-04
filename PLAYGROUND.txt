@@ -138,3 +138,8 @@ records:
     }
   }
 }
+
+totalBalance:
+{
+  totalBalance(date: "2019-12-25")
+}
