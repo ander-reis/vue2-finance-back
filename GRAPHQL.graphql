@@ -1,0 +1,154 @@
+# login
+mutation{
+    login(
+        email: "admin@user.com",
+        password: "secret",
+    ) {
+        token,
+        user{
+            id
+            name
+            email
+        }
+    }
+}
+
+# signup
+mutation {
+    signup (
+        email: "admin@user.com",
+        password: "secret",
+        name: "admin"
+    ) {
+        token
+        user {
+            id
+            name
+            email
+        }
+    }
+}
+
+# select user
+{
+    user {
+        name
+        email
+    }
+}
+
+# create account
+mutation{
+    createAccount(
+        description: "Cartão de Crédito"
+    ){
+        description
+    }
+}
+
+# select account
+{
+    accounts {
+        id
+        description
+        user {
+            name
+            email
+        }
+    }
+}
+
+# create category
+mutation{
+    createCategory(
+        description: "Alimentação"
+        operation: CREDIT
+    ){
+        id
+        description
+        operation
+        user{
+            name
+            email
+        }
+    }
+}
+
+# select categories
+{
+    categories(operation: DEBIT){
+        id
+        description
+        operation
+        user{
+            name
+        }
+    }
+}
+
+# create record
+mutation {
+    createRecord(
+        accountId: "ck4ljqas30031078226xy44zn",
+        categoryId: "ck4ljugth00130782g7dbeb87",
+        amount: 85,
+        type: CREDIT,
+        date: "2020-02-07",
+        description: "Padaria",
+        tags: null
+    ){
+        id
+        date
+        description
+        amount
+        type
+        user{
+            name
+        }
+        category{
+            description
+        }
+    }
+}
+
+# select recods
+{
+    records(
+        month: "12-2019",
+        type: DEBIT,
+        accountsIds: [],
+        categoriesIds: []
+    ){
+        id
+        date
+        description
+        amount
+        type
+        user{
+            id
+            name
+        }
+        category{
+            id
+            description
+        }
+        account{
+            id
+            description
+        }
+    }
+}
+# 2
+{
+    records {
+        id
+        description
+        date
+        type
+    }
+}
+
+#total balance
+{
+    totalBalance(date: "2019-12-25")
+}
